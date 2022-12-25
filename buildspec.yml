@@ -1,0 +1,16 @@
+env:
+  variables:
+    FRONT_URL: 'http://localhost:8000/'
+
+phases:
+  pre_build:
+    commands:
+      - echo "Before running tests"
+      - cd backend/
+      - pip install -r requirements.txt
+  build:
+    commands:
+      - python manage.py migrate
+  post_build:
+    commands:
+      - echo Build completed on "date"
